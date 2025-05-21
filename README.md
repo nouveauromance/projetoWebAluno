@@ -8,17 +8,17 @@
 - Um projeto com Spring, adotando todas as dependências.
 - Um banco de dados MySQL, chamado dbturma.
 - A entidade aluno deve ter:
-  Usuário
-  Senha
-  Nome
-  Curso
-  Email
-  Telefone
-  Status (cursando, trancado ou formado)
-  Disciplina
-  Nota1
-  Nota2
-  Media
+  + Usuário
+  + Senha
+  + Nome
+  + Curso
+  + Email
+  + Telefone
+  + Status (cursando, trancado ou formado)
+  + Disciplina
+  + Nota1
+  + Nota2
+  + Media
 - Faça com que o sistema permita cadastrar, alterar, consultar, deletar cada usuário.
 - Utilizar Postman para implementar.
 
