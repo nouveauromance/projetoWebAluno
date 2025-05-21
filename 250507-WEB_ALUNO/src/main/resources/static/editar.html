@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Aluno</title>
+</head>
+
+<body>
+<h1>Editar Aluno</h1>
+
+<form id="editarForm">
+    <label> ID: <input type="number" id="id" required></label><br><br>
+    <label> Novo Nome: <input type="text" id="nome" required></label><br><br>
+    <label> Novo Email: <input type="email" id="email" required></label><br><br>
+    <label> Nova Senha: <input type="password" id="password" required></label><br><br>
+    <label> Novo Telefone: <input type="text" id="telefone" required></label><br><br>
+    <button type="submit"> ATUALIZAR </button>
+</form>
+
+<script>
+    document.getElementById("editarForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const id = document.getElementById("id").value;
+        const nome = document.getElementById("nome").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const telefone = document.getElementById("telefone").value;
+
+        const usuario = { nome, email, password, telefone };
+
+        const response = await fetch(`/api/v1/usuarios/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type":"application/json"},
+            body: JSON.stringify(usuario)
+        });
+
+        if(response.ok){
+            alert("Usuario atualizado com sucesso!");
+            document.getElementById("editarForm").reset();
+        }else{
+            alert("Erro ao atualizar usuario.")
+        }
+    });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inserir Aluno</title>
+</head>
+
+<body>
+<h1> Inserir Aluno </h1>
+<form id="inserirForm">
+    <label> Nome: <input type="text" id="nome" required></label><br><br>
+    <label> Email: <input type="email" id="email" required></label><br><br>
+    <label> Senha: <input type="password" id="senha" required></label><br><br>
+    <label> Telefone: <input type="text" id="telefone" required></label><br><br>
+    <button type="submit"> INSERIR </button>
+</form>
+
+<script>
+    document.getElementById("inserirForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const nome = document.getElementById("nome").value;
+        const email = document.getElementById("email").value;
+        const senha = document.getElementById("senha").value;
+        const telefone = document.getElementById("telefone").value;
+
+        const usuario = {nome, email, senha, telefone};
+
+        const response = await fetch("api/v1/usuarios", {
+            method: "POST",
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify(usuario)
+        });
+
+        if(response.ok){
+            alert("Usuario inserido com sucesso!");
+            document.getElementById("inserirForm").reset();
+        }else{
+            alert("Erro ao inserir usuario.");
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

@@ -29,14 +29,14 @@ public class AlunoController {
     @PatchMapping("/{id}")
     public ResponseEntity<Aluno> updatePassword(@PathVariable Long id, @RequestBody Aluno aluno){
         Aluno aluno1 = alunoService.editarSenha(id, aluno.getSenha());
-        return ResponseEntity.ok(aluno);
+        return ResponseEntity.ok(aluno1);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Aluno> deleteById(@PathVariable Long id){
         alunoService.deletarPorId(id);
         return ResponseEntity.noContent().build();
-    };
+    }
 
     @DeleteMapping("/deletartodos")
     public ResponseEntity<Void> deleteAll(){

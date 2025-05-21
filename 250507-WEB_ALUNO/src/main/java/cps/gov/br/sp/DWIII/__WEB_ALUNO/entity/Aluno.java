@@ -32,7 +32,7 @@ public class Aluno implements Serializable {
     @Column(name = "Curso", nullable = false, length = 100)
     private String curso;
 
-    @Column(name = "Email", nullable = false, length = 255)
+    @Column(name = "Email", nullable = false, length = 250)
     private String email;
 
     @Column(name = "Telefone", nullable = false, length = 15)
